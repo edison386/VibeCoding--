@@ -1,0 +1,86 @@
+<view class="container">
+  <view class="calendar-section">
+    <view class="calendar-header">
+      <view class="month-year">{{currentYearMonth}}</view>
+    </view>
+    <view class="calendar-weekdays">
+      <view class="weekday">日</view>
+      <view class="weekday">一</view>
+      <view class="weekday">二</view>
+      <view class="weekday">三</view>
+      <view class="weekday">四</view>
+      <view class="weekday">五</view>
+      <view class="weekday">六</view>
+    </view>
+    <view class="calendar-days">
+      <view wx:for="{{calendarData}}" wx:key="date" class="calendar-day {{selectedDate === item.date ? 'selected' : ''}} {{item.isFuture ? 'future-date' : ''}}" data-date="{{item.date}}" bindtap="selectDate">
+        <view class="day-number">{{item.day}}</view>
+        <view wx:if="{{item.hasRecord && !item.isFuture}}" class="record-indicator">
+          <view wx:if="{{item.recordCount > 1}}" class="record-count">{{item.recordCount}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="records-section">
+    <view class="section-header">
+      <view class="section-title">历史记录（按日期倒序）</view>
+    </view>
+
+    <scroll-view scroll-y class="records-scroll" scroll-into-view="{{scrollTarget}}">
+      <view wx:if="{{groupedRecords.length === 0}}" class="empty-state">
+        <view class="empty-icon">📝</view>
+        <view class="empty-text">开始第一条记录，了解自己的肠道节律</view>
+      </view>
+
+      <view wx:else class="records-list">
+        <view wx:for="{{groupedRecords}}" wx:key="date" id="{{item.anchor}}" class="date-group">
+          <view class="group-header {{selectedDate === item.date ? 'group-header-active' : ''}}">
+            <view class="group-date">{{item.date}}</view>
+            <view class="group-count">{{item.records.length}} 条</view>
+          </view>
+
+          <view wx:for="{{item.records}}" wx:key="id" class="record-card">
+            <view class="record-header">
+              <view class="record-time">{{item.time}}</view>
+              <view class="record-actions">
+                <view class="action-btn edit" bindtap="editRecord" data-id="{{item.id}}">编辑</view>
+                <view class="action-btn delete" bindtap="deleteRecord" data-id="{{item.id}}">删除</view>
+              </view>
+            </view>
+
+            <view class="record-body">
+              <view class="record-item">
+                <view class="item-label">排便状态</view>
+                <view class="item-value" style="color: {{item.typeColor}}">{{item.typeDesc}}</view>
+              </view>
+
+              <view class="record-item">
+                <view class="item-label">大便时长</view>
+                <view class="item-value">{{item.duration}} 分钟</view>
+              </view>
+
+              <view class="record-item" wx:if="{{item.feelings && item.feelings.length > 0}}">
+                <view class="item-label">排便感受</view>
+                <view class="feelings-tags">
+                  <view wx:for="{{item.feelings}}" wx:for-item="feeling" wx:key="*this" class="feeling-tag">{{feeling}}</view>
+                </view>
+              </view>
+
+              <view class="record-item">
+                <view class="item-label">大便颜色</view>
+                <view class="color-indicator" style="background-color: {{item.colorValue}}; {{item.color === 'white' ? 'border: 1rpx solid #ddd;' : ''}}"></view>
+                <view class="item-value color-label">{{item.colorLabel}}</view>
+              </view>
+
+              <view class="record-item" wx:if="{{item.note}}">
+                <view class="item-label">备注</view>
+                <view class="item-value note">{{item.note}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

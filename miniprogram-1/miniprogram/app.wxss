@@ -1,0 +1,124 @@
+/* app.wxss */
+
+/* 全局样式重置 */
+page, view, text, button, input, image, navigator, scroll-view, swiper, swiper-item, form, checkbox-group, checkbox, radio-group, radio, label, picker, picker-view, picker-view-column, textarea, canvas, map, video, cover-view, cover-image {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全局字体设置 */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #F7F5F2;
+  color: #2D2D2D;
+}
+
+/* 全局颜色变量 */
+:root {
+  --primary-color: #4CAF7D;
+  --secondary-color: #FF8A50;
+  --background-color: #F7F5F2;
+  --card-background: #FFFFFF;
+  --text-primary: #2D2D2D;
+  --text-secondary: #8C8C8C;
+  --border-color: #EDEDED;
+}
+
+/* 通用卡片样式 */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 通用按钮样式 */
+.button {
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-primary {
+  background-color: #4CAF7D;
+  color: #FFFFFF;
+}
+
+.button-secondary {
+  background-color: #FFFFFF;
+  color: #4CAF7D;
+  border: 2rpx solid #4CAF7D;
+}
+
+/* 通用输入框样式 */
+.input {
+  padding: 16rpx;
+  background-color: #F7F5F2;
+  border-radius: 8rpx;
+  font-size: 14px;
+  color: #2D2D2D;
+}
+
+/* 通用标签样式 */
+.tag {
+  padding: 4rpx 12rpx;
+  background-color: #F7F5F2;
+  border-radius: 12rpx;
+  font-size: 12px;
+  color: #8C8C8C;
+}
+
+/* 通用标题样式 */
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2D2D2D;
+  margin-bottom: 16rpx;
+}
+
+/* 通用描述文字样式 */
+.desc {
+  font-size: 14px;
+  color: #8C8C8C;
+  line-height: 1.5;
+}
+
+/* 通用分割线样式 */
+.divider {
+  height: 1rpx;
+  background-color: #EDEDED;
+  margin: 16rpx 0;
+}
+
+/* 通用加载状态 */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+}
+
+/* 通用空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80rpx 0;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16rpx;
+}
+
+.empty-text {
+  font-size: 14px;
+  color: #8C8C8C;
+}

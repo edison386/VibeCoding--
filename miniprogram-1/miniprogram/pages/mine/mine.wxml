@@ -1,0 +1,115 @@
+<view class="container">
+  <view class="user-info-section">
+    <view class="user-avatar">
+      <image src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    </view>
+    <view class="user-info">
+      <view class="user-name">{{userInfo.nickName}}</view>
+      <view class="user-days">已使用 {{userInfo.registerDays}} 天</view>
+      <view class="profile-action" bindtap="authorizeProfile">更新微信昵称头像</view>
+    </view>
+  </view>
+
+  <view class="settings-section">
+    <view class="setting-section-title">账号与同步</view>
+    <view class="sync-box">
+      <view class="sync-status">{{syncStatus}}</view>
+      <button class="sync-btn" loading="{{syncing}}" bindtap="syncCloudData">登录并云同步</button>
+    </view>
+
+    <view class="setting-section-title">提醒设置</view>
+    <view class="setting-item">
+      <view class="setting-label">
+        <view class="setting-title">每日提醒</view>
+        <view class="setting-desc">开启后可配置提醒时间</view>
+      </view>
+      <view class="setting-control">
+        <switch checked="{{reminderSettings.enabled}}" bindchange="toggleReminder"></switch>
+      </view>
+    </view>
+
+    <view class="setting-item" wx:if="{{reminderSettings.enabled}}">
+      <view class="setting-label">
+        <view class="setting-title">每日提醒时间</view>
+        <view class="setting-desc">每天 {{reminderSettings.time}}</view>
+      </view>
+      <view class="setting-control">
+        <picker mode="time" value="{{reminderSettings.time}}" bindchange="changeReminderTime">
+          <view class="picker-button">选择时间</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="setting-item">
+      <view class="setting-label">
+        <view class="setting-title">未记录晚间提醒</view>
+        <view class="setting-desc">当日未记录时，晚间提醒一次</view>
+      </view>
+      <view class="setting-control">
+        <switch checked="{{reminderSettings.nightReminderEnabled}}" bindchange="toggleNightReminder"></switch>
+      </view>
+    </view>
+
+    <view class="setting-item" wx:if="{{reminderSettings.nightReminderEnabled}}">
+      <view class="setting-label">
+        <view class="setting-title">晚间提醒时间</view>
+        <view class="setting-desc">每天 {{reminderSettings.nightTime}}</view>
+      </view>
+      <view class="setting-control">
+        <picker mode="time" value="{{reminderSettings.nightTime}}" bindchange="changeNightTime">
+          <view class="picker-button">选择时间</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="setting-item" bindtap="requestNotificationPermission">
+      <view class="setting-label">
+        <view class="setting-title">通知权限</view>
+        <view class="setting-desc">引导开启微信通知权限</view>
+      </view>
+      <view class="setting-arrow">→</view>
+    </view>
+
+    <view class="setting-section-title">数据管理</view>
+    <view class="setting-item" bindtap="exportData">
+      <view class="setting-label">
+        <view class="setting-title">数据导出</view>
+        <view class="setting-desc">导出 PDF 健康报告</view>
+      </view>
+      <view class="setting-arrow">→</view>
+    </view>
+
+    <view class="setting-item" bindtap="clearData">
+      <view class="setting-label">
+        <view class="setting-title">清除数据</view>
+        <view class="setting-desc">仅清除本地记录，云端不受影响</view>
+      </view>
+      <view class="setting-arrow">→</view>
+    </view>
+
+    <view class="setting-section-title">其他</view>
+    <view class="setting-item" bindtap="goPrivacy">
+      <view class="setting-label">
+        <view class="setting-title">隐私设置</view>
+        <view class="setting-desc">查看隐私政策与数据说明</view>
+      </view>
+      <view class="setting-arrow">→</view>
+    </view>
+
+    <view class="setting-item" bindtap="goAbout">
+      <view class="setting-label">
+        <view class="setting-title">关于本小程序</view>
+        <view class="setting-desc">版本信息与联系方式</view>
+      </view>
+      <view class="setting-arrow">→</view>
+    </view>
+
+    <view class="setting-item" bindtap="goFeedback">
+      <view class="setting-label">
+        <view class="setting-title">用户反馈</view>
+        <view class="setting-desc">提交问题与建议</view>
+      </view>
+      <view class="setting-arrow">→</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,250 @@
+.container {
+  background-color: #F7F5F2;
+  min-height: 100vh;
+  padding: 16rpx;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.step-number {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background-color: #EDEDED;
+  color: #8C8C8C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.step-item.active .step-number {
+  background-color: #4CAF7D;
+  color: #FFFFFF;
+}
+
+.step-label {
+  font-size: 12px;
+  color: #8C8C8C;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.step-item.active .step-label {
+  color: #4CAF7D;
+  font-weight: 500;
+}
+
+.step-line {
+  flex: 2;
+  height: 2rpx;
+  background-color: #EDEDED;
+  margin: 0 16rpx;
+}
+
+.step-line.active {
+  background-color: #4CAF7D;
+}
+
+.form-content {
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  min-height: 500rpx;
+}
+
+.form-item {
+  margin-bottom: 24rpx;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2D2D2D;
+  margin-bottom: 12rpx;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.picker {
+  padding: 16rpx;
+  background-color: #F7F5F2;
+  border-radius: 8rpx;
+  font-size: 14px;
+  color: #2D2D2D;
+}
+
+.bristol-types {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.type-item {
+  display: flex;
+  align-items: center;
+  padding: 16rpx;
+  background-color: #F7F5F2;
+  border-radius: 8rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.type-item.selected {
+  border-color: #4CAF7D;
+  background-color: rgba(76, 175, 125, 0.1);
+}
+
+.type-color {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
+  margin-right: 16rpx;
+}
+
+.type-info {
+  flex: 1;
+}
+
+.type-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2D2D2D;
+  margin-bottom: 4rpx;
+}
+
+.type-desc {
+  font-size: 12px;
+  color: #8C8C8C;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+}
+
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16rpx;
+  background-color: #F7F5F2;
+  border-radius: 8rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.color-item.selected {
+  border-color: #4CAF7D;
+  background-color: rgba(76, 175, 125, 0.1);
+}
+
+.color-dot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-bottom: 8rpx;
+  border: 2rpx solid #EDEDED;
+}
+
+.color-label {
+  font-size: 12px;
+  color: #8C8C8C;
+}
+
+.feeling-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+
+.feeling-item {
+  padding: 12rpx 20rpx;
+  background-color: #F7F5F2;
+  border-radius: 20rpx;
+  font-size: 14px;
+  color: #8C8C8C;
+  border: 2rpx solid transparent;
+  transition: all 0.3s ease;
+}
+
+.feeling-item.selected {
+  background-color: #4CAF7D !important;
+  color: #FFFFFF !important;
+  border-color: #4CAF7D !important;
+  box-shadow: 0 2rpx 8rpx rgba(76, 175, 125, 0.3);
+}
+
+.feeling-text {
+  font-size: 14px;
+  color: #8C8C8C;
+  transition: all 0.3s ease;
+}
+
+.feeling-text.selected {
+  color: #FFFFFF !important;
+}
+
+textarea {
+  width: 100%;
+  height: 120rpx;
+  padding: 16rpx;
+  background-color: #F7F5F2;
+  border-radius: 8rpx;
+  font-size: 14px;
+  color: #2D2D2D;
+  resize: none;
+}
+
+.bottom-buttons {
+  display: flex;
+  gap: 16rpx;
+  padding: 0 16rpx 24rpx;
+}
+
+button {
+  flex: 1;
+  height: 80rpx;
+  border-radius: 40rpx;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.prev-button {
+  background-color: #FFFFFF;
+  color: #4CAF7D;
+  border: 2rpx solid #4CAF7D;
+}
+
+.next-button, .save-button {
+  background-color: #4CAF7D;
+  color: #FFFFFF;
+  border: none;
+}
+
+.save-button {
+  background-color: #4CAF7D;
+}

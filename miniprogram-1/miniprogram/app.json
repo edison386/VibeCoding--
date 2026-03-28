@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/statistic/statistic",
+    "pages/history/history",
+    "pages/mine/mine",
+    "pages/record/record",
+    "pages/privacy/privacy",
+    "pages/about/about",
+    "pages/feedback/feedback"
+  ],
+  "window": {
+    "backgroundColor": "#F7F5F2",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4CAF7D",
+    "navigationBarTitleText": "肠道日记",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#8C8C8C",
+    "selectedColor": "#4CAF7D",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/icons/home.png",
+        "selectedIconPath": "images/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/statistic/statistic",
+        "text": "统计",
+        "iconPath": "images/icons/business.png",
+        "selectedIconPath": "images/icons/business-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史",
+        "iconPath": "images/icons/history.png",
+        "selectedIconPath": "images/icons/history-active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/icons/usercenter.png",
+        "selectedIconPath": "images/icons/usercenter-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}
