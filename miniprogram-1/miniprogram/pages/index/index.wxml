@@ -1,0 +1,51 @@
+<view class="container">
+  <!-- 问候语和日期 -->
+  <view class="header">
+    <view class="greeting">{{greeting}}，今天肠胃怎么样？</view>
+    <view class="date">{{todayDate}}</view>
+  </view>
+
+  <!-- 打卡状态卡片 -->
+  <view class="status-card" bindtap="handleStatusCardClick">
+    <view class="status-header">
+      <view class="status-title">今日记录</view>
+      <view class="status-arrow">查看</view>
+    </view>
+    <view wx:if="{{hasRecordToday}}" class="recorded-status">
+      <view wx:for="{{todayRecords}}" wx:key="id" class="record-item">
+        <view class="record-time">{{item.time}}</view>
+        <view class="record-type">{{item.typeDesc}}</view>
+      </view>
+      <view class="record-count">共 {{todayRecords.length}} 条记录</view>
+    </view>
+    <view wx:else class="unrecorded-status">
+      <view class="unrecorded-icon">记</view>
+      <view class="unrecorded-text">今天还没有记录，肠道等你关注</view>
+    </view>
+  </view>
+
+  <!-- 连续打卡Banner -->
+  <view class="consecutive-banner">
+    <view class="fire-icon">连</view>
+    <view class="consecutive-text">已连续记录 {{consecutiveDays}} 天</view>
+  </view>
+
+  <!-- 本周小结 -->
+  <view class="week-summary-card">
+    <view class="card-title">本周小结</view>
+    <view class="week-chart">
+      <view wx:for="{{weeklySummary}}" wx:key="day" class="chart-item">
+        <view class="chart-bar-container">
+          <view class="chart-bar" style="height: {{item.barHeight}}rpx;"></view>
+        </view>
+        <view class="chart-label">{{item.day}}</view>
+        <view class="chart-value">{{item.count}}次</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 悬浮按钮 -->
+  <view class="fab {{hasRecordToday ? 'fab-recorded' : ''}}" bindtap="goToRecord">
+    <view class="fab-plus">+</view>
+  </view>
+</view>

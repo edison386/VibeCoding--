@@ -1,0 +1,132 @@
+.container {
+  background-color: #F7F5F2;
+  min-height: 100vh;
+  padding: 16rpx;
+}
+
+.user-info-section {
+  background-color: #4CAF7D;
+  border-radius: 12rpx;
+  padding: 32rpx;
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 24rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.user-avatar image {
+  width: 100%;
+  height: 100%;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.user-days {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.profile-action {
+  margin-top: 10rpx;
+  font-size: 12px;
+  opacity: 0.95;
+  text-decoration: underline;
+}
+
+.settings-section {
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.setting-section-title {
+  font-size: 14px;
+  color: #8C8C8C;
+  margin: 20rpx 0 12rpx 0;
+  padding-left: 8rpx;
+}
+
+.sync-box {
+  background: #F7F5F2;
+  border-radius: 12rpx;
+  padding: 16rpx;
+  margin-bottom: 8rpx;
+}
+
+.sync-status {
+  font-size: 13px;
+  color: #2D2D2D;
+  margin-bottom: 12rpx;
+}
+
+.sync-btn {
+  background-color: #4CAF7D !important;
+  color: #FFFFFF !important;
+  border-radius: 8rpx;
+  font-size: 14px;
+  line-height: 2.2;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 8rpx;
+  border-bottom: 1rpx solid #EDEDED;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-label {
+  flex: 1;
+}
+
+.setting-title {
+  font-size: 16px;
+  color: #2D2D2D;
+  margin-bottom: 4rpx;
+}
+
+.setting-desc {
+  font-size: 12px;
+  color: #8C8C8C;
+}
+
+.setting-control {
+  margin-left: 16rpx;
+}
+
+.picker-button {
+  font-size: 14px;
+  color: #4CAF7D;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #4CAF7D;
+}
+
+.setting-arrow {
+  font-size: 16px;
+  color: #8C8C8C;
+  margin-left: 16rpx;
+}

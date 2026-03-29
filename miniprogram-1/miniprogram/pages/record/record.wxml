@@ -1,0 +1,94 @@
+<view class="container">
+  <view class="step-indicator">
+    <view class="step-header">
+      <view class="step-title">本次记录</view>
+      <view class="step-progress">第 {{currentStep}} / 3 步</view>
+    </view>
+
+    <view class="step-track">
+      <view class="step-item {{currentStep >= 1 ? 'active' : ''}}">
+        <view class="step-number">1</view>
+        <view class="step-label">基本信息</view>
+      </view>
+      <view class="step-line {{currentStep >= 2 ? 'active' : ''}}"></view>
+      <view class="step-item {{currentStep >= 2 ? 'active' : ''}}">
+        <view class="step-number">2</view>
+        <view class="step-label">大便状态</view>
+      </view>
+      <view class="step-line {{currentStep >= 3 ? 'active' : ''}}"></view>
+      <view class="step-item {{currentStep >= 3 ? 'active' : ''}}">
+        <view class="step-number">3</view>
+        <view class="step-label">感受与备注</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-content">
+    <view wx:if="{{currentStep === 1}}" class="step-form">
+      <view class="step-form-desc">记录时间和时长，帮助你回顾每日节律。</view>
+      <view class="form-item">
+        <view class="form-label">时间</view>
+        <view class="form-control">
+          <picker mode="time" value="{{record.time}}" bindchange="bindTimeChange">
+            <view class="picker">{{record.time}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-label">时长（分钟）</view>
+        <view class="form-control">
+          <slider min="0" max="60" value="{{record.duration}}" bindchange="bindDurationChange" show-value></slider>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{currentStep === 2}}" class="step-form">
+      <view class="step-form-desc">选择布里斯托类型和颜色，快速记录状态变化。</view>
+      <view class="form-item">
+        <view class="form-label">大便形态</view>
+        <view class="bristol-types">
+          <view wx:for="{{bristolTypes}}" wx:key="id" class="type-item {{record.type === item.id ? 'selected' : ''}}" data-type="{{item.id}}" bindtap="selectType">
+            <view class="type-color" style="background-color: {{item.color}}"></view>
+            <view class="type-info">
+              <view class="type-name">{{item.name}}</view>
+              <view class="type-desc">{{item.desc}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-label">颜色</view>
+        <view class="color-options">
+          <view wx:for="{{colors}}" wx:key="name" class="color-item {{record.color === item.name ? 'selected' : ''}}" data-color="{{item.name}}" bindtap="selectColor">
+            <view class="color-dot" style="background-color: {{item.value}}"></view>
+            <view class="color-label">{{item.label}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{currentStep === 3}}" class="step-form">
+      <view class="step-form-desc">补充感受和备注，形成更完整的健康日志。</view>
+      <view class="form-item">
+        <view class="form-label">感受</view>
+        <view class="feeling-options">
+          <view wx:for="{{feelings}}" wx:key="name" class="feeling-item {{item.selected ? 'selected' : ''}}" data-feeling="{{item.name}}" bindtap="toggleFeeling">
+            {{item.name}}
+          </view>
+        </view>
+      </view>
+      <view class="form-item">
+        <view class="form-label">备注</view>
+        <view class="form-control">
+          <textarea value="{{record.note}}" bindinput="bindNoteInput" placeholder="添加备注（最多100字）" maxlength="100"></textarea>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom-buttons">
+    <button wx:if="{{currentStep > 1}}" class="prev-button" bindtap="prevStep">上一步</button>
+    <button wx:if="{{currentStep < 3}}" class="next-button" bindtap="nextStep">下一步</button>
+    <button wx:if="{{currentStep === 3}}" class="save-button" bindtap="saveRecord">保存记录</button>
+  </view>
+</view>

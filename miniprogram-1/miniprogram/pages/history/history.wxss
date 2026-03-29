@@ -1,0 +1,320 @@
+.container {
+  min-height: 100vh;
+  padding: 24rpx 20rpx;
+}
+
+.calendar-section {
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin-bottom: 18rpx;
+  border: 1rpx solid rgba(220, 231, 222, 0.85);
+  box-shadow: 0 12rpx 34rpx rgba(31, 42, 34, 0.06);
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 18rpx;
+}
+
+.month-year {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #1F2A22;
+  letter-spacing: 1rpx;
+}
+
+.calendar-weekdays {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 14rpx;
+}
+
+.weekday {
+  flex: 1;
+  text-align: center;
+  font-size: 22rpx;
+  color: #73867A;
+  padding: 8rpx 0;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10rpx;
+}
+
+.calendar-day {
+  position: relative;
+  min-height: 88rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 12rpx;
+  border-radius: 18rpx;
+  font-size: 26rpx;
+  color: #1F2A22;
+  background-color: #F6FAF7;
+  border: 1rpx solid rgba(220, 231, 222, 0.8);
+  overflow: hidden;
+}
+
+.day-number {
+  font-size: 26rpx;
+  font-weight: 600;
+  line-height: 1.2;
+  color: inherit;
+}
+
+.future-date {
+  color: #BCC9C1;
+  background-color: #F7FAF8;
+}
+
+.calendar-day.selected {
+  background: linear-gradient(135deg, #4DB57B, #328E60);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 8rpx 22rpx rgba(58, 163, 110, 0.3);
+}
+
+.calendar-day:not(.selected):active {
+  background-color: #EFF5F0;
+}
+
+.record-indicator {
+  position: absolute;
+  bottom: 12rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rpx;
+  height: 10rpx;
+  background-color: #3AA36E;
+  border-radius: 50%;
+}
+
+.record-count {
+  position: absolute;
+  bottom: 8rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 30rpx;
+  height: 26rpx;
+  padding: 0 6rpx;
+  background-color: #F09A5A;
+  color: #FFFFFF;
+  font-size: 16rpx;
+  border-radius: 999rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  line-height: 1;
+  border: 1rpx solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4rpx 10rpx rgba(240, 154, 90, 0.26);
+}
+
+.calendar-day.selected .record-count {
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+.records-section {
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  border: 1rpx solid rgba(220, 231, 222, 0.85);
+  box-shadow: 0 12rpx 34rpx rgba(31, 42, 34, 0.06);
+}
+
+.section-header {
+  margin-bottom: 14rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1F2A22;
+}
+
+.records-scroll {
+  max-height: 56vh;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 88rpx 0;
+}
+
+.empty-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 24rpx;
+  background: linear-gradient(145deg, #DDF2E4, #EEF8F1);
+  color: #3AA36E;
+  font-size: 34rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+
+.empty-text {
+  font-size: 25rpx;
+  color: #6C7F74;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.date-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 82rpx;
+  padding: 10rpx 16rpx;
+  border-radius: 16rpx;
+  background: #F2F8F4;
+}
+
+.group-header-active {
+  background: rgba(58, 163, 110, 0.16);
+}
+
+.group-date {
+  font-size: 25rpx;
+  font-weight: 600;
+  color: #1F2A22;
+}
+
+.group-count {
+  font-size: 22rpx;
+  color: #6F8377;
+}
+
+.record-card {
+  background-color: #F5FAF7;
+  border-radius: 20rpx;
+  padding: 22rpx;
+  border: 1rpx solid rgba(220, 231, 222, 0.8);
+}
+
+.record-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18rpx;
+  padding-bottom: 14rpx;
+  border-bottom: 1rpx solid #E1EBE3;
+}
+
+.record-time {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1F2A22;
+}
+
+.record-actions {
+  display: flex;
+  gap: 10rpx;
+}
+
+.action-btn {
+  min-height: 64rpx;
+  padding: 0 20rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn.edit {
+  background-color: #3AA36E;
+  color: #FFFFFF;
+}
+
+.action-btn.delete {
+  background-color: #D95A4D;
+  color: #FFFFFF;
+}
+
+.record-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  min-height: 56rpx;
+}
+
+.item-label {
+  width: 160rpx;
+  font-size: 24rpx;
+  color: #6C7F74;
+  flex-shrink: 0;
+}
+
+.item-value {
+  font-size: 24rpx;
+  color: #1F2A22;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.color-indicator {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  margin-right: 14rpx;
+  border: 1rpx solid transparent;
+}
+
+.color-label {
+  font-size: 24rpx;
+  color: #1F2A22;
+}
+
+.feelings-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.feeling-tag {
+  min-height: 56rpx;
+  padding: 0 16rpx;
+  background-color: #FFFFFF;
+  border-radius: 999rpx;
+  font-size: 21rpx;
+  color: #3A9263;
+  border: 1rpx solid rgba(58, 163, 110, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-value.note {
+  flex: 1;
+  color: #5E7267;
+  font-weight: normal;
+}

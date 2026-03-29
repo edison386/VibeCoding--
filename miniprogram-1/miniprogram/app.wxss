@@ -1,0 +1,166 @@
+/* app.wxss */
+
+/* 全局样式重置 */
+page,
+view,
+text,
+button,
+input,
+image,
+navigator,
+scroll-view,
+swiper,
+swiper-item,
+form,
+checkbox-group,
+checkbox,
+radio-group,
+radio,
+label,
+picker,
+picker-view,
+picker-view-column,
+textarea,
+canvas,
+map,
+video,
+cover-view,
+cover-image {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全局设计令牌 */
+:root {
+  --brand-primary: #3AA36E;
+  --brand-primary-strong: #2E8B5D;
+  --brand-accent: #F09A5A;
+  --brand-accent-soft: #FFF2E8;
+  --page-bg: #F4F8F3;
+  --surface: #FFFFFF;
+  --surface-soft: #F2F7F3;
+  --text-primary: #1F2A22;
+  --text-secondary: #5B6E62;
+  --text-muted: #7C8E84;
+  --border: #DCE7DE;
+  --danger: #D95A4D;
+  --shadow-soft: 0 10rpx 30rpx rgba(31, 42, 34, 0.06);
+  --radius-card: 24rpx;
+  --radius-pill: 999rpx;
+}
+
+/* 页面基线 */
+page {
+  font-family: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  color: #1F2A22;
+  line-height: 1.45;
+  background:
+    radial-gradient(circle at 10% 0%, #E9F7EE 0%, rgba(233, 247, 238, 0) 42%),
+    radial-gradient(circle at 100% 16%, #FFF1E7 0%, rgba(255, 241, 231, 0) 36%),
+    linear-gradient(180deg, #F8FCF8 0%, #F2F7F2 100%);
+}
+
+/* 通用卡片样式 */
+.card {
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin-bottom: 18rpx;
+  border: 1rpx solid rgba(220, 231, 222, 0.8);
+  box-shadow: 0 10rpx 30rpx rgba(31, 42, 34, 0.06);
+}
+
+/* 通用按钮样式 */
+.button {
+  min-height: 88rpx;
+  border-radius: 999rpx;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #3AA36E, #2E8B5D);
+  color: #FFFFFF;
+}
+
+.button-secondary {
+  background-color: #FFFFFF;
+  color: #3AA36E;
+  border: 2rpx solid rgba(58, 163, 110, 0.36);
+}
+
+/* 通用输入框样式 */
+.input {
+  min-height: 88rpx;
+  padding: 18rpx 20rpx;
+  background-color: #F2F7F3;
+  border-radius: 18rpx;
+  border: 1rpx solid rgba(220, 231, 222, 0.9);
+  font-size: 14px;
+  color: #1F2A22;
+}
+
+/* 通用标签样式 */
+.tag {
+  padding: 8rpx 18rpx;
+  background-color: #F2F7F3;
+  border-radius: 999rpx;
+  font-size: 12px;
+  color: #5B6E62;
+}
+
+/* 通用标题样式 */
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1F2A22;
+  margin-bottom: 16rpx;
+}
+
+/* 通用描述文字样式 */
+.desc {
+  font-size: 14px;
+  color: #5B6E62;
+  line-height: 1.6;
+}
+
+/* 通用分割线样式 */
+.divider {
+  height: 1rpx;
+  background-color: rgba(220, 231, 222, 0.9);
+  margin: 16rpx 0;
+}
+
+/* 通用加载状态 */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 44rpx;
+}
+
+/* 通用空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 88rpx 0;
+}
+
+.empty-icon {
+  width: 84rpx;
+  height: 84rpx;
+  border-radius: 24rpx;
+  margin-bottom: 18rpx;
+  background: linear-gradient(135deg, #E5F4EA, #F1FAF5);
+}
+
+.empty-text {
+  font-size: 14px;
+  color: #5B6E62;
+}

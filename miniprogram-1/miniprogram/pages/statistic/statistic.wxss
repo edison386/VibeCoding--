@@ -1,0 +1,256 @@
+.container {
+  min-height: 100vh;
+  padding: 24rpx 20rpx;
+}
+
+.tab-bar {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.96);
+  border: 1rpx solid rgba(220, 231, 222, 0.9);
+  border-radius: 24rpx;
+  margin-bottom: 18rpx;
+  padding: 8rpx;
+  box-shadow: 0 8rpx 22rpx rgba(31, 42, 34, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  min-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 18rpx;
+  font-size: 26rpx;
+  color: #718377;
+  font-weight: 500;
+}
+
+.tab-item.active {
+  background: linear-gradient(135deg, #4CB47A, #338F60);
+  color: #FFFFFF;
+  box-shadow: 0 8rpx 18rpx rgba(58, 163, 110, 0.28);
+}
+
+.warning-card {
+  background: linear-gradient(135deg, #FFF6EC, #FFF1E4);
+  border-left: 8rpx solid #F09A5A;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin-bottom: 18rpx;
+  box-shadow: 0 8rpx 24rpx rgba(240, 154, 90, 0.14);
+}
+
+.warning-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #B46033;
+  margin-bottom: 10rpx;
+}
+
+.warning-message {
+  font-size: 24rpx;
+  line-height: 1.6;
+  color: #855538;
+}
+
+.warning-actions {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.warning-link,
+.warning-dismiss {
+  min-height: 62rpx;
+  padding: 0 20rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rpx solid transparent;
+}
+
+.warning-link {
+  background: rgba(58, 163, 110, 0.12);
+  color: #2F8C5E;
+}
+
+.warning-dismiss {
+  color: #7D8E84;
+  border-color: rgba(125, 142, 132, 0.25);
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin-bottom: 18rpx;
+  border: 1rpx solid rgba(220, 231, 222, 0.8);
+  box-shadow: 0 12rpx 34rpx rgba(31, 42, 34, 0.06);
+}
+
+.loading-card,
+.empty-card {
+  text-align: center;
+  color: #718377;
+  font-size: 26rpx;
+  padding: 44rpx 24rpx;
+}
+
+.empty-title {
+  color: #1F2A22;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+  font-weight: 600;
+}
+
+.empty-desc {
+  font-size: 24rpx;
+  color: #708377;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1F2A22;
+  margin-bottom: 18rpx;
+}
+
+.frequency-scroll {
+  width: 100%;
+}
+
+.frequency-chart {
+  display: flex;
+  align-items: flex-end;
+  min-height: 280rpx;
+  padding: 0 12rpx;
+}
+
+.frequency-chart.month-mode {
+  min-width: 1280rpx;
+}
+
+.chart-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 64rpx;
+}
+
+.bar-container {
+  height: 220rpx;
+  width: 42rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 10rpx;
+}
+
+.bar {
+  width: 32rpx;
+  background: linear-gradient(180deg, #5CC58A, #3AA36E);
+  border-radius: 16rpx 16rpx 0 0;
+}
+
+.bar-label {
+  font-size: 20rpx;
+  color: #7B8D82;
+  margin-bottom: 4rpx;
+}
+
+.bar-value {
+  font-size: 20rpx;
+  color: #1F2A22;
+  font-weight: 600;
+}
+
+.type-distribution {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.type-item {
+  display: flex;
+  align-items: center;
+  min-height: 92rpx;
+  padding: 16rpx;
+  background-color: #F3F9F5;
+  border-radius: 18rpx;
+  border: 1rpx solid rgba(58, 163, 110, 0.1);
+}
+
+.type-color {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  margin-right: 14rpx;
+}
+
+.type-info {
+  flex: 1;
+}
+
+.type-name {
+  font-size: 25rpx;
+  color: #1F2A22;
+  margin-bottom: 2rpx;
+}
+
+.type-count {
+  font-size: 22rpx;
+  color: #6F8276;
+}
+
+.regularity-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.regularity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 90rpx;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #E2ECE4;
+}
+
+.regularity-item:last-child {
+  border-bottom: none;
+}
+
+.regularity-label {
+  font-size: 25rpx;
+  color: #6A7D72;
+}
+
+.regularity-value {
+  font-size: 25rpx;
+  color: #1F2A22;
+  font-weight: 600;
+}
+
+.health-assessment {
+  padding: 20rpx;
+  background: linear-gradient(135deg, #F5FAF7, #F2F7F4);
+  border-left: 8rpx solid #3AA36E;
+  border-radius: 0 16rpx 16rpx 0;
+}
+
+.assessment-status {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.assessment-message {
+  font-size: 24rpx;
+  color: #6C7F74;
+  line-height: 1.6;
+}

@@ -1,0 +1,25 @@
+.container {
+  min-height: 100vh;
+  background: #F7F5F2;
+  padding: 20rpx;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D2D2D;
+  margin-bottom: 8rpx;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+}
