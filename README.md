@@ -94,3 +94,14 @@ git clone https://github.com/你的用户名/intestine-diary.git
 - [产品需求文档 PRD](https://github.com/edison386/VibeCoding--/blob/main/miniprogram-1/肠道日记_PRD.md)
 
 ---
+
+## 预览
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/edison386/VibeCoding--/main/miniprogram-1/asset/截屏2026-03-29%2017.25.53.png" width="45%" />
+  <img src="https://raw.githubusercontent.com/edison386/VibeCoding--/main/miniprogram-1/asset/截屏2026-03-29%2017.26.41.png" width="45%" />
+  <img src="https://raw.githubusercontent.com/edison386/VibeCoding--/main/miniprogram-1/asset/截屏2026-03-29%2017.26.49.png" width="45%" />
+  <img src="https://raw.githubusercontent.com/edison386/VibeCoding--/main/miniprogram-1/asset/截屏2026-03-29%2017.26.57.png" width="45%" />
+  <img src="https://raw.githubusercontent.com/edison386/VibeCoding--/main/miniprogram-1/asset/截屏2026-03-29%2017.27.09.png" width="45%" />
+  <img src="https://raw.githubusercontent.com/edison386/VibeCoding--/main/miniprogram-1/asset/截屏2026-03-29%2017.27.22.png" width="45%" />
+</p>
