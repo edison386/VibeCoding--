@@ -17,13 +17,13 @@ Page({
       updatedAt: 0,
     },
     bristolTypes: [
-      { id: 1, name: 'Type 1', desc: '坚硬颗粒状（便秘）', color: '#FFC043' },
-      { id: 2, name: 'Type 2', desc: '香肠状有硬块', color: '#FFC043' },
-      { id: 3, name: 'Type 3', desc: '香肠状有裂纹（理想偏干）', color: '#4CAF7D' },
-      { id: 4, name: 'Type 4', desc: '香肠状光滑（理想）', color: '#4CAF7D' },
-      { id: 5, name: 'Type 5', desc: '柔软小块（偏软）', color: '#FF8A50' },
-      { id: 6, name: 'Type 6', desc: '糊状（轻度腹泻）', color: '#FF8A50' },
-      { id: 7, name: 'Type 7', desc: '水状（腹泻）', color: '#F44336' },
+      { id: 1, name: 'Type 1', desc: '坚硬颗粒状（便秘）', color: '#E5A841' },
+      { id: 2, name: 'Type 2', desc: '香肠状有硬块', color: '#E5A841' },
+      { id: 3, name: 'Type 3', desc: '香肠状有裂纹（理想偏干）', color: '#3AA36E' },
+      { id: 4, name: 'Type 4', desc: '香肠状光滑（理想）', color: '#3AA36E' },
+      { id: 5, name: 'Type 5', desc: '柔软小块（偏软）', color: '#F09A5A' },
+      { id: 6, name: 'Type 6', desc: '糊状（轻度腹泻）', color: '#F09A5A' },
+      { id: 7, name: 'Type 7', desc: '水状（腹泻）', color: '#D95A4D' },
     ],
     colors: [
       { name: 'brown', label: '棕色', value: '#8B4513' },
@@ -34,11 +34,11 @@ Page({
       { name: 'white', label: '白色', value: '#FFFFFF' },
     ],
     feelings: [
-      { name: '顺畅' },
-      { name: '费力' },
-      { name: '不尽感' },
-      { name: '腹痛' },
-      { name: '腹胀' },
+      { name: '顺畅', selected: false },
+      { name: '费力', selected: false },
+      { name: '不尽感', selected: false },
+      { name: '腹痛', selected: false },
+      { name: '腹胀', selected: false },
     ],
   },
 
@@ -46,7 +46,9 @@ Page({
     const id = options && options.id;
     if (id) {
       this.loadRecord(id);
+      return;
     }
+    this.syncFeelingSelections(this.data.record.feelings);
   },
 
   loadRecord(id) {
@@ -63,6 +65,7 @@ Page({
         type: Number(record.type || 0),
       },
     });
+    this.syncFeelingSelections(record.feelings || []);
   },
 
   nextStep() {
@@ -104,7 +107,25 @@ Page({
       list.push(feeling);
     }
 
-    this.setData({ 'record.feelings': list });
+    const selectedSet = new Set(list);
+    const feelings = this.data.feelings.map((item) => ({
+      ...item,
+      selected: selectedSet.has(item.name),
+    }));
+
+    this.setData({
+      'record.feelings': list,
+      feelings,
+    });
+  },
+
+  syncFeelingSelections(selectedFeelings = []) {
+    const selectedSet = new Set(selectedFeelings);
+    const feelings = this.data.feelings.map((item) => ({
+      ...item,
+      selected: selectedSet.has(item.name),
+    }));
+    this.setData({ feelings });
   },
 
   bindNoteInput(e) {
@@ -136,7 +157,7 @@ Page({
     try {
       await recordService.upsertRecord(payload);
       wx.vibrateShort({ type: 'light' });
-      wx.showToast({ title: '记录成功 ✓', icon: 'success' });
+      wx.showToast({ title: '记录成功', icon: 'success' });
       setTimeout(() => wx.navigateBack(), 700);
     } catch (error) {
       console.error('saveRecord failed:', error);

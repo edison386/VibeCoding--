@@ -2,13 +2,13 @@ const dateUtils = require('../../utils/date');
 const recordService = require('../../utils/recordService');
 
 const BRISTOL_TYPES = [
-  { id: 1, desc: '坚硬颗粒状（便秘）', color: '#FFC043' },
-  { id: 2, desc: '香肠状有硬块', color: '#FFC043' },
-  { id: 3, desc: '香肠状有裂纹（理想偏干）', color: '#4CAF7D' },
-  { id: 4, desc: '香肠状光滑（理想）', color: '#4CAF7D' },
-  { id: 5, desc: '柔软小块（偏软）', color: '#FF8A50' },
-  { id: 6, desc: '糊状（轻度腹泻）', color: '#FF8A50' },
-  { id: 7, desc: '水状（腹泻）', color: '#F44336' },
+  { id: 1, desc: '坚硬颗粒状（便秘）', color: '#E5A841' },
+  { id: 2, desc: '香肠状有硬块', color: '#E5A841' },
+  { id: 3, desc: '香肠状有裂纹（理想偏干）', color: '#3AA36E' },
+  { id: 4, desc: '香肠状光滑（理想）', color: '#3AA36E' },
+  { id: 5, desc: '柔软小块（偏软）', color: '#F09A5A' },
+  { id: 6, desc: '糊状（轻度腹泻）', color: '#F09A5A' },
+  { id: 7, desc: '水状（腹泻）', color: '#D95A4D' },
 ];
 
 const COLOR_MAP = {

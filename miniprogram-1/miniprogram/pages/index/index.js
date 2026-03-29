@@ -100,13 +100,24 @@ Page({
     const start = dateUtils.getStartOfWeek(new Date());
     const dayNames = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 
-    const weeklySummary = [];
+    const rawSummary = [];
     for (let i = 0; i < 7; i += 1) {
       const current = dateUtils.addDays(start, i);
       const dateStr = dateUtils.formatDate(current);
       const count = records.filter((record) => record.date === dateStr).length;
-      weeklySummary.push({ day: dayNames[i], count });
+      rawSummary.push({ day: dayNames[i], count });
     }
+
+    const maxCount = Math.max(...rawSummary.map((item) => item.count), 1);
+    const weeklySummary = rawSummary.map((item) => {
+      if (item.count === 0) {
+        return { ...item, barHeight: 10 };
+      }
+      return {
+        ...item,
+        barHeight: Math.min(120, Math.max(18, Math.round((item.count / maxCount) * 112))),
+      };
+    });
 
     this.setData({ weeklySummary });
   },

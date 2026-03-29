@@ -10,17 +10,17 @@
     "pages/feedback/feedback"
   ],
   "window": {
-    "backgroundColor": "#F7F5F2",
+    "backgroundColor": "#F4F8F3",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#4CAF7D",
+    "navigationBarBackgroundColor": "#3AA36E",
     "navigationBarTitleText": "肠道日记",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "color": "#8C8C8C",
-    "selectedColor": "#4CAF7D",
+    "color": "#728377",
+    "selectedColor": "#3AA36E",
     "backgroundColor": "#FFFFFF",
-    "borderStyle": "black",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",

@@ -15,9 +15,10 @@
     <view class="calendar-days">
       <view wx:for="{{calendarData}}" wx:key="date" class="calendar-day {{selectedDate === item.date ? 'selected' : ''}} {{item.isFuture ? 'future-date' : ''}}" data-date="{{item.date}}" bindtap="selectDate">
         <view class="day-number">{{item.day}}</view>
-        <view wx:if="{{item.hasRecord && !item.isFuture}}" class="record-indicator">
+        <block wx:if="{{item.hasRecord && !item.isFuture}}">
           <view wx:if="{{item.recordCount > 1}}" class="record-count">{{item.recordCount}}</view>
-        </view>
+          <view wx:else class="record-indicator"></view>
+        </block>
       </view>
     </view>
   </view>
@@ -29,7 +30,7 @@
 
     <scroll-view scroll-y class="records-scroll" scroll-into-view="{{scrollTarget}}">
       <view wx:if="{{groupedRecords.length === 0}}" class="empty-state">
-        <view class="empty-icon">📝</view>
+        <view class="empty-icon">记</view>
         <view class="empty-text">开始第一条记录，了解自己的肠道节律</view>
       </view>
 

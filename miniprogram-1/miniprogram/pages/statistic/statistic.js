@@ -3,20 +3,20 @@ const recordService = require('../../utils/recordService');
 
 const DAY_NAMES = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 const STATUS_MAP = {
-  normal: { label: '规律', color: '#4CAF7D' },
-  less: { label: '偏少', color: '#FFC043' },
-  more: { label: '偏多', color: '#FF8A50' },
-  attention: { label: '需关注', color: '#F44336' },
+  normal: { label: '规律', color: '#3AA36E' },
+  less: { label: '偏少', color: '#E5A841' },
+  more: { label: '偏多', color: '#F09A5A' },
+  attention: { label: '需关注', color: '#D95A4D' },
 };
 
 const BRISTOL_TYPES = [
-  { id: 1, desc: '坚硬颗粒状（便秘）', color: '#FFC043' },
-  { id: 2, desc: '香肠状有硬块', color: '#FFC043' },
-  { id: 3, desc: '香肠状有裂纹（理想偏干）', color: '#4CAF7D' },
-  { id: 4, desc: '香肠状光滑（理想）', color: '#4CAF7D' },
-  { id: 5, desc: '柔软小块（偏软）', color: '#FF8A50' },
-  { id: 6, desc: '糊状（轻度腹泻）', color: '#FF8A50' },
-  { id: 7, desc: '水状（腹泻）', color: '#F44336' },
+  { id: 1, desc: '坚硬颗粒状（便秘）', color: '#E5A841' },
+  { id: 2, desc: '香肠状有硬块', color: '#E5A841' },
+  { id: 3, desc: '香肠状有裂纹（理想偏干）', color: '#3AA36E' },
+  { id: 4, desc: '香肠状光滑（理想）', color: '#3AA36E' },
+  { id: 5, desc: '柔软小块（偏软）', color: '#F09A5A' },
+  { id: 6, desc: '糊状（轻度腹泻）', color: '#F09A5A' },
+  { id: 7, desc: '水状（腹泻）', color: '#D95A4D' },
 ];
 
 Page({
@@ -38,7 +38,7 @@ Page({
     healthAssessment: {
       status: 'normal',
       label: '规律',
-      color: '#4CAF7D',
+      color: '#3AA36E',
       message: '肠道状态良好，继续保持规律作息和健康饮食。',
     },
     abnormalWarning: {
@@ -137,6 +137,16 @@ Page({
   },
 
   calculateFrequencyData(records, range) {
+    const minHeight = 10;
+    const minNonZeroHeight = 22;
+    const maxHeight = 180;
+    const toAdaptiveHeight = (count, maxCount) => {
+      if (count === 0) return minHeight;
+      if (maxCount <= 0) return minNonZeroHeight;
+      const scaled = Math.round((count / maxCount) * (maxHeight - minNonZeroHeight) + minNonZeroHeight);
+      return Math.min(maxHeight, Math.max(minNonZeroHeight, scaled));
+    };
+
     if (range === 'day') {
       const slots = [
         { label: '00-03', start: 0, end: 3 },
@@ -147,16 +157,20 @@ Page({
         { label: '20-23', start: 20, end: 23 },
       ];
 
-      return slots.map((slot) => {
+      const slotData = slots.map((slot) => {
         const count = records.filter((item) => {
           const hour = Number((item.time || '00:00').split(':')[0]);
           return hour >= slot.start && hour <= slot.end;
         }).length;
+        return { label: slot.label, count };
+      });
+      const maxCount = Math.max(...slotData.map((item) => item.count), 0);
 
+      return slotData.map((item) => {
         return {
-          label: slot.label,
-          count,
-          height: count === 0 ? 8 : Math.min(180, count * 36),
+          label: item.label,
+          count: item.count,
+          height: toAdaptiveHeight(item.count, maxCount),
         };
       });
     }
@@ -172,10 +186,13 @@ Page({
         result.push({
           label: DAY_NAMES[i],
           count,
-          height: count === 0 ? 8 : Math.min(180, count * 36),
         });
       }
-      return result;
+      const maxCount = Math.max(...result.map((item) => item.count), 0);
+      return result.map((item) => ({
+        ...item,
+        height: toAdaptiveHeight(item.count, maxCount),
+      }));
     }
 
     const now = new Date();
@@ -188,11 +205,14 @@ Page({
       result.push({
         label: `${day}`,
         count,
-        height: count === 0 ? 8 : Math.min(180, count * 28),
       });
     }
 
-    return result;
+    const maxCount = Math.max(...result.map((item) => item.count), 0);
+    return result.map((item) => ({
+      ...item,
+      height: toAdaptiveHeight(item.count, maxCount),
+    }));
   },
 
   calculateTypeDistribution(records) {
